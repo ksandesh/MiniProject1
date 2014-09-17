@@ -1,0 +1,616 @@
+Release 12.2 - xst M.63c (nt64)
+Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Reading design: top_level.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "top_level.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "top_level"
+Output Format                      : NGC
+Target Device                      : xc5vlx110t-1-ff1136
+
+---- Source Options
+Top Module Name                    : top_level
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Off
+Reduce Control Sets                : Off
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "TX.v" in library work
+Compiling verilog file "RX.v" in library work
+Module <TX> compiled
+Compiling verilog file "brg.v" in library work
+Module <RX> compiled
+Compiling verilog file "spart.v" in library work
+Module <brg> compiled
+Compiling verilog file "driver.v" in library work
+Module <spart> compiled
+Compiling verilog file "top_level.v" in library work
+Module <driver> compiled
+Module <top_level> compiled
+No errors in compilation
+Analysis of file <"top_level.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <top_level> in library <work>.
+
+Analyzing hierarchy for module <spart> in library <work>.
+
+Analyzing hierarchy for module <driver> in library <work> with parameters.
+	CLEAR = "000"
+	LOAD_DBH = "001"
+	LOAD_DBL = "010"
+	READ = "100"
+	WAIT1 = "011"
+	WAIT2 = "101"
+	WRITE = "110"
+
+Analyzing hierarchy for module <RX> in library <work>.
+
+Analyzing hierarchy for module <TX> in library <work>.
+
+Analyzing hierarchy for module <brg> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <top_level>.
+Module <top_level> is correct for synthesis.
+ 
+Analyzing module <spart> in library <work>.
+Module <spart> is correct for synthesis.
+ 
+Analyzing module <RX> in library <work>.
+Module <RX> is correct for synthesis.
+ 
+Analyzing module <TX> in library <work>.
+Module <TX> is correct for synthesis.
+ 
+Analyzing module <brg> in library <work>.
+Module <brg> is correct for synthesis.
+ 
+Analyzing module <driver> in library <work>.
+	CLEAR = 3'b000
+	LOAD_DBH = 3'b001
+	LOAD_DBL = 3'b010
+	READ = 3'b100
+	WAIT1 = 3'b011
+	WAIT2 = 3'b101
+	WRITE = 3'b110
+WARNING:Xst:905 - "driver.v" line 167: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <data_buffer>, <DBH>, <DBL>
+Module <driver> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <driver>.
+    Related source file is "driver.v".
+WARNING:Xst:1780 - Signal <send> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <iorw_reg> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <iocs_reg> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <ioaddr_reg> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 7                                              |
+    | Transitions        | 11                                             |
+    | Inputs             | 2                                              |
+    | Outputs            | 9                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | rst                       (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 000                                            |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 4x16-bit ROM for signal <br_cfg$rom0000>.
+    Found 8-bit tristate buffer for signal <databus>.
+    Found 8-bit register for signal <data_buffer>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 ROM(s).
+	inferred   8 D-type flip-flop(s).
+	inferred   8 Tristate(s).
+Unit <driver> synthesized.
+
+
+Synthesizing Unit <RX>.
+    Related source file is "RX.v".
+WARNING:Xst:646 - Signal <rx_over_run> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <rx_error> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <rx_buffer> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found 8-bit register for signal <rx_out>.
+    Found 1-bit register for signal <rda>.
+    Found 4-bit register for signal <rx_enable_counter>.
+    Found 4-bit adder for signal <rx_enable_counter$addsub0000> created at line 75.
+    Found 4-bit register for signal <rx_index>.
+    Found 4-bit comparator greater for signal <rx_index$cmp_gt0000> created at line 80.
+    Found 4-bit comparator less for signal <rx_index$cmp_lt0000> created at line 80.
+    Found 4-bit adder for signal <rx_index$share0000>.
+    Found 1-bit register for signal <rx_sample1>.
+    Found 1-bit register for signal <rx_sample2>.
+    Found 8-bit register for signal <rx_shift_reg>.
+    Found 4-bit comparator greatequal for signal <rx_shift_reg$cmp_ge0000> created at line 80.
+    Found 4-bit comparator lessequal for signal <rx_shift_reg$cmp_le0000> created at line 80.
+    Found 1-bit register for signal <rx_start>.
+    Summary:
+	inferred  28 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   4 Comparator(s).
+Unit <RX> synthesized.
+
+
+Synthesizing Unit <TX>.
+    Related source file is "TX.v".
+    Found finite state machine <FSM_1> for signal <count>.
+    -----------------------------------------------------------------------
+    | States             | 10                                             |
+    | Transitions        | 19                                             |
+    | Inputs             | 1                                              |
+    | Outputs            | 9                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Clock enable       | count$not0000             (positive)           |
+    | Reset              | rst                       (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 0000                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 1-bit register for signal <tbr>.
+    Found 1-bit register for signal <txd>.
+    Found 8-bit register for signal <tx_buffer>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  10 D-type flip-flop(s).
+Unit <TX> synthesized.
+
+
+Synthesizing Unit <brg>.
+    Related source file is "brg.v".
+    Found 16-bit comparator equal for signal <tx_enable>.
+    Found 16-bit comparator equal for signal <rx_enable>.
+    Found 2-bit register for signal <brg_ready>.
+    Found 16-bit down counter for signal <counter_rx>.
+    Found 16-bit down counter for signal <counter_tx>.
+    Found 8-bit register for signal <DBH>.
+    Found 8-bit register for signal <DBL>.
+    Summary:
+	inferred   2 Counter(s).
+	inferred  18 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+Unit <brg> synthesized.
+
+
+Synthesizing Unit <spart>.
+    Related source file is "spart.v".
+    Found 8-bit tristate buffer for signal <databus>.
+    Summary:
+	inferred   8 Tristate(s).
+Unit <spart> synthesized.
+
+
+Synthesizing Unit <top_level>.
+    Related source file is "top_level.v".
+Unit <top_level> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 4x16-bit ROM                                          : 1
+# Adders/Subtractors                                   : 2
+ 4-bit adder                                           : 2
+# Counters                                             : 2
+ 16-bit down counter                                   : 2
+# Registers                                            : 15
+ 1-bit register                                        : 6
+ 2-bit register                                        : 1
+ 4-bit register                                        : 2
+ 8-bit register                                        : 6
+# Comparators                                          : 6
+ 16-bit comparator equal                               : 2
+ 4-bit comparator greatequal                           : 1
+ 4-bit comparator greater                              : 1
+ 4-bit comparator less                                 : 1
+ 4-bit comparator lessequal                            : 1
+# Tristates                                            : 2
+ 8-bit tristate buffer                                 : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <spart0/TX1/count/FSM> on signal <count[1:10]> with one-hot encoding.
+---------------------
+ State | Encoding
+---------------------
+ 0000  | 0000000001
+ 0001  | 0000000010
+ 0010  | 0000000100
+ 0011  | 0000001000
+ 0100  | 0000010000
+ 0101  | 0000100000
+ 0110  | 0001000000
+ 0111  | 0010000000
+ 1000  | 0100000000
+ 1001  | 1000000000
+---------------------
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <driver0/state/FSM> on signal <state[1:7]> with one-hot encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 0000001
+ 001   | 0000010
+ 010   | 0000100
+ 011   | 0001000
+ 100   | 0010000
+ 101   | 0100000
+ 110   | 1000000
+-------------------
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 2
+# ROMs                                                 : 1
+ 4x16-bit ROM                                          : 1
+# Adders/Subtractors                                   : 2
+ 4-bit adder                                           : 2
+# Counters                                             : 2
+ 16-bit down counter                                   : 2
+# Registers                                            : 64
+ Flip-Flops                                            : 64
+# Comparators                                          : 6
+ 16-bit comparator equal                               : 2
+ 4-bit comparator greatequal                           : 1
+ 4-bit comparator greater                              : 1
+ 4-bit comparator less                                 : 1
+ 4-bit comparator lessequal                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2042 - Unit spart: 8 internal tristates are replaced by logic (pull-up yes): databus<0>, databus<1>, databus<2>, databus<3>, databus<4>, databus<5>, databus<6>, databus<7>.
+WARNING:Xst:2042 - Unit driver: 8 internal tristates are replaced by logic (pull-up yes): databus<0>, databus<1>, databus<2>, databus<3>, databus<4>, databus<5>, databus<6>, databus<7>.
+
+Optimizing unit <top_level> ...
+
+Optimizing unit <RX> ...
+
+Optimizing unit <TX> ...
+
+Optimizing unit <brg> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block top_level, actual ratio is 0.
+FlipFlop driver0/state_FSM_FFd7 has been replicated 1 time(s) to handle iob=true attribute.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 114
+ Flip-Flops                                            : 114
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : top_level.ngr
+Top Level Output File Name         : top_level
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 14
+
+Cell Usage :
+# BELS                             : 261
+#      GND                         : 1
+#      INV                         : 30
+#      LUT1                        : 2
+#      LUT2                        : 8
+#      LUT3                        : 47
+#      LUT4                        : 24
+#      LUT5                        : 7
+#      LUT6                        : 68
+#      MUXCY                       : 41
+#      VCC                         : 1
+#      XORCY                       : 32
+# FlipFlops/Latches                : 114
+#      FDC                         : 16
+#      FDCE                        : 40
+#      FDE                         : 8
+#      FDP                         : 12
+#      FDR                         : 9
+#      FDRE                        : 13
+#      FDS                         : 11
+#      FDSE                        : 5
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 13
+#      IBUF                        : 4
+#      OBUF                        : 9
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 5vlx110tff1136-1 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             113  out of  69120     0%  
+ Number of Slice LUTs:                  186  out of  69120     0%  
+    Number used as Logic:               186  out of  69120     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    211
+   Number with an unused Flip Flop:      98  out of    211    46%  
+   Number with an unused LUT:            25  out of    211    11%  
+   Number of fully used LUT-FF pairs:    88  out of    211    41%  
+   Number of unique control sets:         8
+
+IO Utilization: 
+ Number of IOs:                          14
+ Number of bonded IOBs:                  14  out of    640     2%  
+    IOB Flip Flops/Latches:               1
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 114   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+rst                                | IBUF                   | 68    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -1
+
+   Minimum period: 3.149ns (Maximum Frequency: 317.561MHz)
+   Minimum input arrival time before clock: 2.404ns
+   Maximum output required time after clock: 3.388ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 3.149ns (frequency: 317.561MHz)
+  Total number of paths / destination ports: 2748 / 178
+-------------------------------------------------------------------------
+Delay:               3.149ns (Levels of Logic = 8)
+  Source:            spart0/brg1/counter_tx_0 (FF)
+  Destination:       spart0/TX1/txd (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: spart0/brg1/counter_tx_0 to spart0/TX1/txd
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             3   0.471   1.080  spart0/brg1/counter_tx_0 (spart0/brg1/counter_tx_0)
+     LUT6:I0->O            1   0.094   0.000  spart0/brg1/Mcompar_tx_enable_lut<0> (spart0/brg1/Mcompar_tx_enable_lut<0>)
+     MUXCY:S->O            1   0.372   0.000  spart0/brg1/Mcompar_tx_enable_cy<0> (spart0/brg1/Mcompar_tx_enable_cy<0>)
+     MUXCY:CI->O           1   0.026   0.000  spart0/brg1/Mcompar_tx_enable_cy<1> (spart0/brg1/Mcompar_tx_enable_cy<1>)
+     MUXCY:CI->O           1   0.026   0.000  spart0/brg1/Mcompar_tx_enable_cy<2> (spart0/brg1/Mcompar_tx_enable_cy<2>)
+     MUXCY:CI->O           1   0.026   0.000  spart0/brg1/Mcompar_tx_enable_cy<3> (spart0/brg1/Mcompar_tx_enable_cy<3>)
+     MUXCY:CI->O           1   0.026   0.000  spart0/brg1/Mcompar_tx_enable_cy<4> (spart0/brg1/Mcompar_tx_enable_cy<4>)
+     MUXCY:CI->O          20   0.254   0.680  spart0/brg1/Mcompar_tx_enable_cy<5> (spart0/tx_enable)
+     LUT6:I4->O            1   0.094   0.000  spart0/TX1/txd_rstpot (spart0/TX1/txd_rstpot)
+     FDS:D                    -0.018          spart0/TX1/txd
+    ----------------------------------------
+    Total                      3.149ns (1.389ns logic, 1.760ns route)
+                                       (44.1% logic, 55.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 78 / 63
+-------------------------------------------------------------------------
+Offset:              2.404ns (Levels of Logic = 3)
+  Source:            br_cfg<0> (PAD)
+  Destination:       driver0/data_buffer_3 (FF)
+  Destination Clock: clk rising
+
+  Data Path: br_cfg<0> to driver0/data_buffer_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             7   0.818   0.822  br_cfg_0_IBUF (br_cfg_0_IBUF)
+     LUT6:I2->O            1   0.094   0.576  databus<2>LogicTrst_SW4 (N95)
+     LUT3:I1->O            3   0.094   0.000  databus<2>LogicTrst (databus<2>)
+     FDE:D                    -0.018          driver0/data_buffer_2
+    ----------------------------------------
+    Total                      2.404ns (1.006ns logic, 1.398ns route)
+                                       (41.8% logic, 58.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              3.388ns (Levels of Logic = 1)
+  Source:            driver0/state_FSM_FFd6 (FF)
+  Destination:       GPIO_LED_1 (PAD)
+  Source Clock:      clk rising
+
+  Data Path: driver0/state_FSM_FFd6 to GPIO_LED_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             41   0.471   0.465  driver0/state_FSM_FFd6 (driver0/state_FSM_FFd6)
+     OBUF:I->O                 2.452          GPIO_LED_1_OBUF (GPIO_LED_1)
+    ----------------------------------------
+    Total                      3.388ns (2.923ns logic, 0.465ns route)
+                                       (86.3% logic, 13.7% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.97 secs
+ 
+--> 
+
+Total memory usage is 317168 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   10 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

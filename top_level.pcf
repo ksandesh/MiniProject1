@@ -1,0 +1,21 @@
+//! **************************************************************************
+// Written by: Map M.63c on Tue Sep 16 21:10:00 2014
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk" LOCATE = SITE "AH15" LEVEL 1;
+COMP "br_cfg<0>" LOCATE = SITE "AC25" LEVEL 1;
+COMP "br_cfg<1>" LOCATE = SITE "AC24" LEVEL 1;
+COMP "rxd" LOCATE = SITE "AG15" LEVEL 1;
+COMP "GPIO_LED_0" LOCATE = SITE "H18" LEVEL 1;
+COMP "GPIO_LED_1" LOCATE = SITE "L18" LEVEL 1;
+COMP "rst" LOCATE = SITE "U25" LEVEL 1;
+COMP "GPIO_LED_2" LOCATE = SITE "G15" LEVEL 1;
+COMP "GPIO_LED_3" LOCATE = SITE "AD26" LEVEL 1;
+COMP "txd" LOCATE = SITE "AG20" LEVEL 1;
+COMP "GPIO_LED_4" LOCATE = SITE "G16" LEVEL 1;
+COMP "GPIO_LED_5" LOCATE = SITE "AD25" LEVEL 1;
+COMP "GPIO_LED_6" LOCATE = SITE "AD24" LEVEL 1;
+COMP "GPIO_LED_7" LOCATE = SITE "AE24" LEVEL 1;
+SCHEMATIC END;
+

@@ -1,0 +1,6 @@
+verilog work "TX.v"
+verilog work "RX.v"
+verilog work "brg.v"
+verilog work "spart.v"
+verilog work "driver.v"
+verilog work "top_level.v"
